@@ -1,0 +1,170 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Paleta: Fintech / Leilões — azul-ardósia sóbrio + âmbar como acento */
+    --background: 220 20% 97%;
+    --foreground: 220 25% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 25% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 25% 12%;
+
+    --primary: 220 65% 40%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 15% 92%;
+    --secondary-foreground: 220 25% 20%;
+
+    --muted: 220 15% 94%;
+    --muted-foreground: 220 15% 50%;
+
+    --accent: 38 92% 50%;
+    --accent-foreground: 220 25% 12%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 15% 88%;
+    --input: 220 15% 88%;
+    --ring: 220 65% 40%;
+
+    --radius: 0.5rem;
+
+    /* Personalizados */
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 220 25% 12%;
+    --info: 199 89% 48%;
+    --info-foreground: 0 0% 100%;
+
+    /* Status de veredito */
+    --verdict-viavel: 142 71% 45%;
+    --verdict-limitrofe: 38 92% 50%;
+    --verdict-revisar: 0 72% 51%;
+  }
+
+  .dark {
+    --background: 220 25% 8%;
+    --foreground: 220 15% 95%;
+
+    --card: 220 25% 11%;
+    --card-foreground: 220 15% 95%;
+
+    --popover: 220 25% 11%;
+    --popover-foreground: 220 15% 95%;
+
+    --primary: 220 65% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 20% 18%;
+    --secondary-foreground: 220 15% 85%;
+
+    --muted: 220 20% 16%;
+    --muted-foreground: 220 15% 55%;
+
+    --accent: 38 92% 55%;
+    --accent-foreground: 220 25% 8%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 20% 20%;
+    --input: 220 20% 20%;
+    --ring: 220 65% 55%;
+
+    --success: 142 65% 42%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 55%;
+    --warning-foreground: 220 25% 8%;
+    --info: 199 89% 48%;
+    --info-foreground: 0 0% 100%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Scrollbar customizada */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-muted;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-border rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground;
+  }
+}
+
+@layer components {
+  /* Badges de origem de dados */
+  .badge-auto {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-700;
+  }
+  .badge-manual {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-700;
+  }
+  .badge-reviewed {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-700;
+  }
+  .badge-pending {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-700;
+  }
+  .badge-used {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium bg-primary/10 text-primary;
+  }
+  .badge-ignored {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-500;
+  }
+  .badge-outlier {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-700;
+  }
+  .badge-duplicate {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium bg-purple-100 text-purple-700;
+  }
+
+  /* Campo calculado */
+  .field-calculated {
+    @apply bg-muted/50 text-muted-foreground cursor-default;
+  }
+  /* Campo importado automaticamente */
+  .field-imported {
+    @apply bg-blue-50 border-blue-200;
+  }
+  /* Campo com pendência */
+  .field-pending {
+    @apply bg-amber-50 border-amber-200;
+  }
+  /* Campo revisado por humano */
+  .field-reviewed {
+    @apply bg-green-50 border-green-200;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Número em tabela: monospace para alinhamento */
+  .tabular {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum" 1;
+  }
+}
