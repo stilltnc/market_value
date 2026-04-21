@@ -160,8 +160,8 @@ export async function recalculateViability(
   const costItems = await getCostItems(analysisId, scenario.id)
 
   const acquisitionItems = costItems.filter((i) => i.category === 'aquisicao' && !i.is_monthly)
-  const possessionItems = costItems.filter((i) => i.category === 'posse' && !i.is_monthly)
-  const managementItems = costItems.filter((i) => i.category === 'gestao' && !i.is_monthly)
+  const possessionItems = costItems.filter((i) => i.category === 'imissao_posse' && !i.is_monthly)
+  const managementItems = costItems.filter((i) => i.category === 'gestao_reforma' && !i.is_monthly)
   const monthlyItems = costItems.filter((i) => i.is_monthly)
   const saleItems = costItems.filter((i) => i.category === 'venda' && !i.is_monthly)
 
